@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- عنوان التطبيق -->
+  <title>MyStudy Planner | Khalil</title>
+
+  <link rel="icon" type="image/png" href="images/icon.png" />
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <!-- Header + Navigation -->
+  <header class="app-header">
+    <div class="container header-inner">
+
+      <div class="brand">
+        <img src="images/logo.png" alt="StudyBuddy Logo" class="brand-logo" />
+
+        <div class="brand-text">
+          <h1 class="brand-title">MyStudy Planner</h1>
+          <p class="brand-subtitle">Organize tasks, habits, and study resources</p>
+        </div>
+      </div>
+
+      <!-- زر القائمة للموبايل -->
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        ☰
+      </button>
+
+      <!-- قائمة التنقل -->
+      <nav class="app-nav" id="appNav">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a class="nav-link is-active" href="#dashboard" data-route="dashboard">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tasks" data-route="tasks">Tasks</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#habits" data-route="habits">Habits</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#resources" data-route="resources">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#settings" data-route="settings">Settings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about" data-route="about">About</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!--  (SPA Sections) -->
+  <main class="app-main">
+    <div class="container">
+      <!-- Dashboard -->
+      <section class="page-section" id="dashboard" data-page="dashboard">
+        <header class="section-header">
+          <h2 class="section-title">Dashboard</h2>
+          <p class="section-subtitle">Quick overview of your progress.</p>
+        </header>
+
+        <article class="cards-grid">
+          <section class="card">
+            <h3 class="card-title">Soon Due</h3>
+            <p class="card-value" id="dashSoonDueCount">0</p>
+            <p class="card-hint">Active tasks (next 7 days)</p>
+          </section>
+
+          <section class="card">
+            <h3 class="card-title">Completed</h3>
+            <p class="card-value" id="dashCompletedCount">0</p>
+            <p class="card-hint">Completed tasks</p>
+          </section>
+
+          <section class="card">
+            <h3 class="card-title">Habit Streak</h3>
+            <p class="card-value" id="dashHabitStreak">0</p>
+            <p class="card-hint">Days in a row (this week)</p>
+          </section>
+
+          <section class="card">
+            <h3 class="card-title">Favorites</h3>
+            <p class="card-value" id="dashFavCount">0</p>
+            <p class="card-hint">Saved resources</p>
+          </section>
+        </article>
+
+        <article class="panel">
+          <h3 class="panel-title">Tasks Progress</h3>
+          <p class="panel-text" id="dashProgressText">0% completed</p>
+          <div class="progress" role="progressbar" aria-label="Tasks progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="progress-bar" id="dashProgressBar" style="width: 0%"></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <h3 class="panel-title">Today (due today or within 2 days)</h3>
+          <ul class="today-list" id="dashTodayList"></ul>
+          <p class="panel-text" id="dashTodayHint">No urgent tasks right now.</p>
+        </article>
+      </section>
+
+      <!-- Tasks -->
+      <section class="page-section is-hidden" id="tasks" data-page="tasks">
+        <header class="section-header">
+          <h2 class="section-title">Tasks</h2>
+          <p class="section-subtitle">Create, edit, filter, and track your tasks.</p>
+        </header>
+
+        <!--  نموذج إضافة   -->
+        <article class="panel">
+          <h3 class="panel-title">Add / Edit Task</h3>
+
+          <form class="form" id="taskForm" autocomplete="off">
+            <!-- اسم المهمة -->
+            <div class="form-row">
+              <label class="form-label" for="taskTitle">Title</label>
+              <input class="form-input" type="text" id="taskTitle" name="taskTitle" placeholder="e.g. Study chapter 3" />
+              <small class="form-error" id="taskTitleError"></small>
+            </div>
+
+            <!-- وصف المهمة -->
+            <div class="form-row">
+              <label class="form-label" for="taskDesc">Description</label>
+              <textarea class="form-textarea" id="taskDesc" name="taskDesc" rows="3" placeholder="Optional details..."></textarea>
+            </div>
+
+            <div class="form-row form-row-3">
+              <div class="form-col">
+                <label class="form-label" for="taskCategory">Category</label>
+                <select class="form-select" id="taskCategory" name="taskCategory">
+                  <option value="Study">Study</option>
+                  <option value="Assignment">Assignment</option>
+                  <option value="Exam">Exam</option>
+                  <option value="Personal">Personal</option>
+                </select>
+              </div>
+
+              <div class="form-col">
+                <label class="form-label" for="taskPriority">Priority</label>
+                <select class="form-select" id="taskPriority" name="taskPriority">
+                  <option value="Low">Low</option>
+                  <option value="Medium" selected>Medium</option>
+                  <option value="High">High</option>
+                </select>
+              </div>
+
+              <div class="form-col">
+                <label class="form-label" for="taskDue">Due Date</label>
+                <input class="form-input" type="date" id="taskDue" name="taskDue" required />
+                <small class="form-error" id="taskDueError"></small>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit" id="taskSubmitBtn">Add Task</button>
+              <button class="btn btn-ghost is-hidden" type="button" id="taskCancelEditBtn">Cancel Edit</button>
+            </div>
+          </form>
+        </article>
+
+        <article class="panel">
+          <h3 class="panel-title">Filter & Sort</h3>
+
+          <div class="toolbar">
+            <div class="toolbar-group">
+              <label class="toolbar-label" for="taskStatusFilter">Status</label>
+              <select class="toolbar-select" id="taskStatusFilter">
+                <option value="all" selected>All</option>
+                <option value="active">Active</option>
+                <option value="completed">Completed</option>
+              </select>
+            </div>
+
+            <div class="toolbar-group">
+              <label class="toolbar-label" for="taskCategoryFilter">Category</label>
+              <select class="toolbar-select" id="taskCategoryFilter">
+                <option value="all" selected>All</option>
+                <option value="Study">Study</option>
+                <option value="Assignment">Assignment</option>
+                <option value="Exam">Exam</option>
+                <option value="Personal">Personal</option>
+              </select>
+            </div>
+
+            <div class="toolbar-group">
+              <label class="toolbar-label" for="taskSortBy">Sort By</label>
+              <select class="toolbar-select" id="taskSortBy">
+                <option value="due" selected>Due Date</option>
+                <option value="priority">Priority</option>
+                <option value="created">Created</option>
+              </select>
+            </div>
+          </div>
+        </article>
+
+        <!-- قائمة المهام -->
+        <article class="panel">
+          <h3 class="panel-title">Task List</h3>
+
+          <ul class="list" id="tasksList"></ul>
+
+          <p class="empty-state is-hidden" id="tasksEmptyState">
+            No tasks yet. Add your first task!
+          </p>
+        </article>
+      </section>
+
+      <!-- العادات -->
+
+      <section class="page-section is-hidden" id="habits" data-page="habits">
+        <header class="section-header">
+          <h2 class="section-title">Habits</h2>
+          <p class="section-subtitle">Track weekly habit progress (Sat → Fri).</p>
+        </header>
+
+        <article class="panel">
+          <h3 class="panel-title">Add Habit</h3>
+
+          <form class="form" id="habitForm" autocomplete="off">
+            <div class="form-row">
+              <label class="form-label" for="habitName">Habit Name</label>
+              <input class="form-input" type="text" id="habitName" name="habitName" placeholder="e.g. Read 30 minutes" />
+              <small class="form-error" id="habitNameError"></small>
+            </div>
+
+            <div class="form-row">
+              <label class="form-label" for="habitGoal">Weekly Goal (1–7)</label>
+              <input class="form-input" type="number" id="habitGoal" name="habitGoal" min="1" max="7" value="5" />
+              <small class="form-error" id="habitGoalError"></small>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Add Habit</button>
+            </div>
+          </form>
+        </article>
+
+        <article class="panel">
+          <h3 class="panel-title">Habits List</h3>
+          <div class="habits-wrap" id="habitsList"></div>
+
+          <p class="empty-state is-hidden" id="habitsEmptyState">
+            No habits yet. Add your first habit!
+          </p>
+        </article>
+
+        <article class="panel">
+          <h3 class="panel-title">Weekly Summary</h3>
+          <div class="summary" id="habitsSummary"></div>
+        </article>
+      </section>
+
+      <!-- Resources -->
+
+      <section class="page-section is-hidden" id="resources" data-page="resources">
+        <header class="section-header">
+          <h2 class="section-title">Resources</h2>
+          <p class="section-subtitle">Browse resources from resources.json (fetch).</p>
+        </header>
+
+        <article class="panel">
+          <h3 class="panel-title">Search & Filter</h3>
+
+          <div class="toolbar">
+            <div class="toolbar-group toolbar-grow">
+              <label class="toolbar-label" for="resourceSearch">Search</label>
+              <input class="toolbar-input" type="search" id="resourceSearch" placeholder="Search by title or tags..." />
+            </div>
+
+            <div class="toolbar-group">
+              <label class="toolbar-label" for="resourceCategory">Category</label>
+              <select class="toolbar-select" id="resourceCategory">
+                <option value="all" selected>All</option>
+              </select>
+            </div>
+          </div>
+        </article>
+
+        <div class="status is-hidden" id="resourcesLoading">Loading resources...</div>
+        <div class="status status-error is-hidden" id="resourcesError">Failed to load resources.</div>
+
+        <article class="panel">
+          <h3 class="panel-title">Resources List</h3>
+          <div class="resources-grid" id="resourcesList"></div>
+
+          <p class="empty-state is-hidden" id="resourcesEmptyState">
+            No matching resources.
+          </p>
+        </article>
+      </section>
+
+      <!-- Settings -->
+
+      <section class="page-section is-hidden" id="settings" data-page="settings">
+        <header class="section-header">
+          <h2 class="section-title">Settings</h2>
+          <p class="section-subtitle">Theme and app data controls.</p>
+        </header>
+
+        <article class="panel">
+          <h3 class="panel-title">Theme</h3>
+
+          <div class="setting-row">
+            <div>
+              <p class="setting-title">Dark Mode</p>
+              <p class="setting-hint">Toggle light/dark theme (saved in localStorage).</p>
+            </div>
+            <button class="btn btn-secondary" id="themeToggleBtn" type="button">
+              Toggle Theme
+            </button>
+          </div>
+        </article>
+
+        <article class="panel">
+          <h3 class="panel-title">Data</h3>
+
+          <div class="setting-row">
+            <div>
+              <p class="setting-title">Reset All Data</p>
+              <p class="setting-hint">Deletes tasks, habits, and favorites (with confirmation).</p>
+            </div>
+            <button class="btn btn-danger" id="resetDataBtn" type="button">
+              Reset
+            </button>
+          </div>
+        </article>
+      </section>
+
+
+      <!-- About -->
+
+      <section class="page-section is-hidden" id="about" data-page="about">
+        <header class="section-header">
+          <h2 class="section-title">About</h2>
+          <p class="section-subtitle">Project info and student name.</p>
+        </header>
+
+        <article class="panel">
+          <h3 class="panel-title">MyStudy Planner</h3>
+          <p class="panel-text">
+            A single-page productivity web app to manage tasks, habits, and study resources using HTML, CSS, and JavaScript.
+          </p>
+
+          <hr class="divider" />
+
+          <p class="panel-text">
+            <strong>Student Name:</strong> Khalil Alakkkad
+          </p>
+        </article>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+
+  <footer class="app-footer">
+    <div class="container footer-inner">
+      <p class="footer-text">© <span id="yearNow"></span> MyStudy Planner — Khalil</p>
+    </div>
+  </footer>
+
+  <!-- ملف JavaScript الرئيسي -->
+   
+  <script src="./app.js"></script>
+</body>
+</html>

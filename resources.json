@@ -1,0 +1,122 @@
+[
+  {
+    "id": "r1",
+    "title": "JavaScript Basics",
+    "category": "JavaScript",
+    "description": "Introduction to JavaScript fundamentals and syntax.",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+    "tags": ["js", "basics", "programming"]
+  },
+  {
+    "id": "r2",
+    "title": "CSS Flexbox Guide",
+    "category": "CSS",
+    "description": "Complete guide to Flexbox layout with examples.",
+    "url": "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
+    "tags": ["css", "flexbox", "layout"]
+  },
+  {
+    "id": "r3",
+    "title": "HTML Semantic Elements",
+    "category": "HTML",
+    "description": "Learn how to use semantic HTML for better structure.",
+    "url": "https://developer.mozilla.org/en-US/docs/Glossary/Semantics",
+    "tags": ["html", "semantic", "structure"]
+  },
+  {
+    "id": "r4",
+    "title": "JavaScript Array Methods",
+    "category": "JavaScript",
+    "description": "Useful array methods like map, filter, and reduce.",
+    "url": "https://javascript.info/array-methods",
+    "tags": ["js", "arrays"]
+  },
+  {
+    "id": "r5",
+    "title": "CSS Grid Layout",
+    "category": "CSS",
+    "description": "Learn how to build layouts using CSS Grid.",
+    "url": "https://css-tricks.com/snippets/css/complete-guide-grid/",
+    "tags": ["css", "grid"]
+  },
+  {
+    "id": "r6",
+    "title": "DOM Manipulation",
+    "category": "JavaScript",
+    "description": "How to select and manipulate DOM elements.",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model",
+    "tags": ["js", "dom"]
+  },
+  {
+    "id": "r7",
+    "title": "Responsive Web Design",
+    "category": "Web Design",
+    "description": "Principles of responsive and mobile-first design.",
+    "url": "https://www.w3schools.com/css/css_rwd_intro.asp",
+    "tags": ["responsive", "mobile"]
+  },
+  {
+    "id": "r8",
+    "title": "Git & GitHub Basics",
+    "category": "Tools",
+    "description": "Version control basics using Git and GitHub.",
+    "url": "https://www.atlassian.com/git/tutorials",
+    "tags": ["git", "github"]
+  },
+  {
+    "id": "r9",
+    "title": "Async JavaScript",
+    "category": "JavaScript",
+    "description": "Promises, async and await explained.",
+    "url": "https://javascript.info/async",
+    "tags": ["async", "promises"]
+  },
+  {
+    "id": "r10",
+    "title": "Form Validation",
+    "category": "JavaScript",
+    "description": "Client-side form validation techniques.",
+    "url": "https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation",
+    "tags": ["forms", "validation"]
+  },
+  {
+    "id": "r11",
+    "title": "Color Theory for UI",
+    "category": "Web Design",
+    "description": "How to choose colors for user interfaces.",
+    "url": "https://www.smashingmagazine.com/2010/01/color-theory-for-designers-part-1-the-meaning-of-color/",
+    "tags": ["ui", "colors"]
+  },
+  {
+    "id": "r12",
+    "title": "Accessibility Basics",
+    "category": "Web Design",
+    "description": "Make websites accessible for everyone.",
+    "url": "https://www.w3.org/WAI/fundamentals/accessibility-intro/",
+    "tags": ["a11y", "accessibility"]
+  },
+  {
+    "id": "r13",
+    "title": "LocalStorage Guide",
+    "category": "JavaScript",
+    "description": "How to store data in the browser using localStorage.",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage",
+    "tags": ["localstorage", "browser"]
+  },
+  {
+    "id": "r14",
+    "title": "Clean Code Principles",
+    "category": "Programming",
+    "description": "Writing clean and maintainable code.",
+    "url": "https://www.freecodecamp.org/news/clean-code-javascript/",
+    "tags": ["clean-code", "best-practices"]
+  },
+  {
+    "id": "r15",
+    "title": "Study Techniques",
+    "category": "Productivity",
+    "description": "Effective study techniques for students.",
+    "url": "https://www.opencolleges.edu.au/informed/features/study-techniques/",
+    "tags": ["study", "productivity"]
+  }
+]
