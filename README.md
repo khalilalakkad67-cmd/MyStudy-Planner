@@ -4,7 +4,7 @@
 
 ---
 
-## 👨‍🎓 Student Information
+## Student Information
 - **Name:** Khalil Alakkad
 - **Course:** Web Development
 - **Project Type:** Final Project (SPA)
@@ -32,3 +32,4 @@
 
 
 ##  Project Structure
+
